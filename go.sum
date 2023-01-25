@@ -1,0 +1,15 @@
+github.com/BenLubar/evtc v0.0.0-20200120180412-759f8ea4589d h1:9OF14RrlyQ5aG7eijhB0axVQ//j5cHKmBdRTP5xdl/8=
+github.com/BenLubar/evtc v0.0.0-20200120180412-759f8ea4589d/go.mod h1:rfutDdBTHbkt7bUQQUbXb7LrVzZbecrM07/gsYbW8e4=
+github.com/Yi-Jiahe/evtc v0.0.0-20230125145055-82d78227cb54 h1:c3sECgMRSD2L1G5lsxzrXkbba/g8v2NRw2JOwniGNMY=
+github.com/Yi-Jiahe/evtc v0.0.0-20230125145055-82d78227cb54/go.mod h1:x0iW26LvGSs8Lfz8T7xFLntHVgTadtLvMEbQeglSdkE=
+github.com/Yi-Jiahe/evtc v0.0.0-20230125151606-21376dc6f51d h1:1cTJLzZ6z9SYl1yaq4X92Oh4NoOEGmpHn+aCenU4jLk=
+github.com/Yi-Jiahe/evtc v0.0.0-20230125151606-21376dc6f51d/go.mod h1:EcYckFP14g01jfLDCXc4LcrOWXZ9TIAd1kDcYDZv4Pc=
+github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
+github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+github.com/google/uuid v1.1.1 h1:Gkbcsh/GbpXz7lPftLA3P6TYMwjCLYm83jiFQZF/3gY=
+github.com/google/uuid v1.1.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
+github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
+golang.org/x/text v0.3.2 h1:tW2bmiBqwgJj/UpqtC8EpXEZVYOwU0yG4iWbprSVAcs=
+golang.org/x/text v0.3.2/go.mod h1:bEr9sfX3Q8Zfm5fL9x+3itogRgK3+ptLWKqgva+5dAk=
+golang.org/x/tools v0.0.0-20180917221912-90fa682c2a6e/go.mod h1:n7NCudcB/nEzxVGmLbDWY5pfWTLqBcC2KZ6jyYvM4mQ=
