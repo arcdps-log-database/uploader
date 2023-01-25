@@ -4,6 +4,8 @@ github.com/Yi-Jiahe/evtc v0.0.0-20230125145055-82d78227cb54 h1:c3sECgMRSD2L1G5ls
 github.com/Yi-Jiahe/evtc v0.0.0-20230125145055-82d78227cb54/go.mod h1:x0iW26LvGSs8Lfz8T7xFLntHVgTadtLvMEbQeglSdkE=
 github.com/Yi-Jiahe/evtc v0.0.0-20230125151606-21376dc6f51d h1:1cTJLzZ6z9SYl1yaq4X92Oh4NoOEGmpHn+aCenU4jLk=
 github.com/Yi-Jiahe/evtc v0.0.0-20230125151606-21376dc6f51d/go.mod h1:EcYckFP14g01jfLDCXc4LcrOWXZ9TIAd1kDcYDZv4Pc=
+github.com/Yi-Jiahe/evtc v0.0.0-20230125152954-632c5ffa4dd9 h1:25avalcAgR8VE9TDoMv1Kq20/8nQb/d0JgjUJB5Hfpk=
+github.com/Yi-Jiahe/evtc v0.0.0-20230125152954-632c5ffa4dd9/go.mod h1:EcYckFP14g01jfLDCXc4LcrOWXZ9TIAd1kDcYDZv4Pc=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/google/uuid v1.1.1 h1:Gkbcsh/GbpXz7lPftLA3P6TYMwjCLYm83jiFQZF/3gY=

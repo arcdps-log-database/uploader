@@ -81,15 +81,12 @@ func main() {
 				}
 				defer rc.Close()
 
-				fmt.Printf("Parsing log...\n")
-
 				// Parse evtc file
-				_, err = evtc.Parse(rc)
-				fmt.Printf("Log parsed.\n")
+				header, _, _, err := evtc.ParseHeader(rc)
 				if err != nil {
-					fmt.Printf("Error occurred when parsing log.\n")
-					// log.Panic(err)
+					log.Panic(err)
 				}
+				fmt.Printf("%v %d\n", string(header.Date[:]), header.Boss)
 
 				// fmt.Printf("%v\n", chain)
 			}
