@@ -16,6 +16,20 @@ type Config struct {
 	BucketKey string `json:"bucketKey"`
 }
 
+type Encounter struct {
+	Duration      int64     `json:"durationMS"`
+	TimeStart     string    `json:"timeStart"`
+	EiEncounterID int64     `json:"eiEncounterID"`
+	TriggerID     int64     `json:"triggerID"`
+	Players       []Players `json:"players"`
+}
+
+type Players struct {
+	Account    string `json:"Account"`
+	Profession string `json:"profession"`
+	Name       string `json:"name"`
+}
+
 func main() {
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
@@ -72,8 +86,10 @@ func main() {
 		}
 
 		if strings.HasSuffix(info.Name(), ".zevtc") {
-			fmt.Printf("%v\n", path)
-			fmt.Printf("%v\n", info.Name())
+			fmt.Printf("Parsing Log: %s.\n", path)
+
+			v := strings.Split(info.Name(), ".")
+			name := v[0]
 
 			cmd := exec.Command(EIPath, "-c", EIConfigPath, "-p", path)
 			err := cmd.Run()
@@ -81,33 +97,35 @@ func main() {
 				log.Panic(err)
 			}
 
-			// // Unzip compressed evtc file
-			// r, err := zip.OpenReader(path)
-			// if err != nil {
-			// 	log.Panic(err)
-			// }
-			// defer r.Close()
+			filepath.Walk(tempDirPath, func(parsedLogPath string, parsedLogInfo os.FileInfo, err error) error {
+				if strings.HasPrefix(parsedLogInfo.Name(), name) {
+					parsedLogFile, err := os.Open(parsedLogPath)
+					if err != nil {
+						log.Fatal(err)
+					}
+					defer configFile.Close()
 
-			// for _, f := range r.File {
-			// 	rc, err := f.Open()
-			// 	if err != nil {
-			// 		log.Panic(err)
-			// 	}
-			// 	defer rc.Close()
+					byteValue, err := ioutil.ReadAll(parsedLogFile)
+					if err != nil {
+						log.Fatal(err)
+					}
 
-			// 	Parse evtc file
-			// 	header, _, _, err := evtc.ParseHeader(rc)
-			// 	if err != nil {
-			// 		log.Panic(err)
-			// 	}
-			// 	fmt.Printf("%v %d\n", string(header.Date[:]), header.Boss)
+					var encounter Encounter
+					json.Unmarshal(byteValue, &encounter)
 
-			// 	// fmt.Printf("%v\n", chain)
-			// }
+					fmt.Printf("%+v\n", encounter)
+
+					fmt.Printf("Removing parsed log: %s.\n", parsedLogPath)
+					os.Remove(parsedLogPath)
+				}
+
+				return nil
+			})
 		}
 
 		return nil
 	})
 
+	fmt.Print("Removing temp directory.")
 	os.RemoveAll(tempDirPath)
 }
