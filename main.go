@@ -11,11 +11,6 @@ import (
 	"strings"
 )
 
-type Config struct {
-	LogPath   string `json:"logPath"`
-	BucketKey string `json:"bucketKey"`
-}
-
 type Encounter struct {
 	Duration      int64     `json:"durationMS"`
 	TimeStart     string    `json:"timeStart"`
@@ -42,37 +37,7 @@ func main() {
 		os.Mkdir(configDir, 0750)
 	}
 
-	configFilePath := filepath.Join(configDir, "config.json")
-	if _, err := os.Stat(configFilePath); os.IsNotExist(err) {
-		config := Config{
-			LogPath:   filepath.Join(homeDir, "Documents", "Guild Wars 2", "addons", "arcdps", "arcdps.cbtlogs", "Ankka"),
-			BucketKey: "",
-		}
-
-		data, err := json.Marshal(
-			config,
-		)
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		_ = ioutil.WriteFile(configFilePath, data, 0644)
-	}
-
-	configFile, err := os.Open(configFilePath)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer configFile.Close()
-
-	byteValue, err := ioutil.ReadAll(configFile)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	var config Config
-
-	json.Unmarshal(byteValue, &config)
+	config := loadConfig(homeDir, configDir)
 
 	EIPath := filepath.Join(homeDir, "GW2EI", "GuildWars2EliteInsights.exe")
 	EIConfigPath := filepath.Join(homeDir, ".arcdps-log-uploader", "elite_insights.conf")
@@ -103,7 +68,7 @@ func main() {
 					if err != nil {
 						log.Fatal(err)
 					}
-					defer configFile.Close()
+					defer parsedLogFile.Close()
 
 					byteValue, err := ioutil.ReadAll(parsedLogFile)
 					if err != nil {
